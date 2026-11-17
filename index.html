@@ -12,6 +12,15 @@
 @media(max-width:560px){body{font-size:15px}.cover h1{font-size:37px}.cover h2{font-size:16px}.chapter-heading{display:block}.chapter-number{display:block;margin-bottom:14px}.chapter h2{font-size:25px}.key-callout{padding:18px}.table-scroll{margin-left:-22px;margin-right:-22px;padding-left:22px}.table-scroll table{margin-right:22px}.competitor-group,.prototype-group{padding:18px}.evidence-grid-2,.evidence-grid-3{grid-template-columns:1fr}.evidence-card img,.phone-shot img{height:auto;max-height:560px}.reasoning-chain{grid-template-columns:1fr}.reasoning-chain i{transform:rotate(90deg);text-align:center}}
 @media print{.sidebar,.mobile-bar,.progress,.top-button{display:none!important}.page{margin:0}.cover{min-height:auto;page-break-after:always}.report{max-width:none;padding:0 22mm}.report-section{page-break-before:always}.zoomable{cursor:default}.table-scroll{overflow:visible}table{font-size:10px}}
 .lightbox{box-sizing:border-box;width:100vw;height:100vh;max-width:none;max-height:none;margin:0;padding:24px;border:0;background:rgba(0,0,0,.92);overflow:hidden}.lightbox::backdrop{background:rgba(0,0,0,.92)}.lightbox-inner{width:100%;height:100%;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}.lightbox img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}.lightbox-close{position:absolute;right:24px;top:24px;z-index:2}
+
+/* 6.3 AI quality evaluation and iteration, consistent with the report palette */
+.evaluation-loop{display:grid;gap:13px;margin:26px 0 42px}
+.evaluation-stage{display:grid;grid-template-columns:42px minmax(0,1fr);gap:16px;align-items:start;padding:20px 22px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--red);box-shadow:0 5px 19px rgba(20,20,20,.025)}
+.evaluation-index{font:700 19px/1.5 Georgia,serif;color:var(--red)}
+.evaluation-stage h4{margin:0 0 7px;font-size:17px;color:var(--ink)}
+.evaluation-stage p{margin:0;color:#44413e;font-size:15px;line-height:1.85}
+.evaluation-stage:last-child{background:#f0ebe4}
+@media(max-width:560px){.evaluation-stage{grid-template-columns:30px minmax(0,1fr);padding:16px;gap:10px}.evaluation-stage p{font-size:14px}}
 </style>
 </head>
 <body>
@@ -126,11 +135,19 @@
 <h2 id="section-6-2"><strong>6.2 分阶段实施路径</strong></h2>
 <p>采用小范围验证、逐步扩展的实施策略，优先建设阅读辅助能力，再探索复杂分析服务。</p>
 <div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><table class="report-table"><thead><tr><th>阶段</th><th>建设重点</th><th>交付成果</th></tr></thead><tbody><tr><th scope="row"><strong>第一阶段：基础体验建设</strong></th><td>AI 摘要、术语解释、历史报道关联</td><td>核心阅读功能上线试点，验证基础体验</td></tr><tr><th scope="row"><strong>第二阶段：深度交互拓展</strong></th><td>上下文问答、AI 影响推理、兴趣推荐</td><td>建立交互探索能力，完善可信引用</td></tr><tr><th scope="row"><strong>第三阶段：持续优化</strong></th><td>多来源核验、事件追踪、个性化分析</td><td>完善知识体系，探索差异化增值服务</td></tr></tbody></table></div>
-<h2 id="section-6-3"><strong>6.3 效果验证指标</strong></h2>
+<h2 id="section-6-3"><strong>6.3 效果验证与持续迭代</strong></h2>
+<h3 id="section-6-3-1">6.3.1 效果验证指标</h3>
 <p>从用户体验、用户参与、商业价值及 AI 服务质量四个维度评估升级效果。</p>
 <div class="table-scroll" role="region" aria-label="可横向滚动的表格" tabindex="0"><table class="report-table"><thead><tr><th>评估维度</th><th>核心指标</th><th>验证目标</th></tr></thead><tbody><tr><th scope="row">用户体验</th><td>信息获取耗时、任务完成率、满意度</td><td>验证阅读理解效率</td></tr><tr><th scope="row">用户参与</th><td>AI 功能使用率、关联阅读点击率、7日留存率</td><td>评估内容使用深度</td></tr><tr><th scope="row"><strong>商业价值</strong></th><td>会员权益入口点击率、试用转付费率、会员续费率</td><td>验证付费转化和会员价值</td></tr><tr><th scope="row">AI 服务质量</th><td>事实准确率、引用有效率、响应延迟、单次调用成本</td><td>评估可靠性与成本</td></tr></tbody></table></div>
 <p>商业化方面，可探索基础 AI 阅读功能免费体验，结合《财经》深度报道与历史内容资源，为会员提供更丰富的背景关联、专题问答及深度分析服务。通过 A/B 实验验证用户付费意愿，同时评估模型调用成本与实际收益。</p>
-<p>首期通过小规模用户测试与 A/B 实验，对比原版文章页和 AI 升级版文章页的使用表现，并结合用户反馈与 Bad Case 分析持续优化。</p>
+<h3 id="section-6-3-2">6.3.2 AI 质量评测与迭代机制</h3>
+<p>为确保 AI 功能不仅能够实现，而且具备实际使用价值，建立“上线前评测—上线后监测—问题分析—优化复评”的持续迭代机制。</p>
+<div class="evaluation-loop" aria-label="AI 质量评测与迭代流程">
+<section class="evaluation-stage"><span class="evaluation-index" aria-hidden="true">01</span><div><h4>上线前</h4><p>围绕 AI 摘要、上下文问答及影响推理等核心场景，构建覆盖不同财经主题和复杂程度的评测样本。由产品与运营人员抽样评估内容准确性、事实依据、推理合理性及回答实用性，并结合自动化评测识别典型 Bad Case。对于存在关键事实错误、无依据推断等问题的输出，优先修复后再进入上线验证。</p></div></section>
+<section class="evaluation-stage"><span class="evaluation-index" aria-hidden="true">02</span><div><h4>上线后</h4><p>通过埋点监测 AI 功能使用率、提问完成率、用户反馈、兜底触发率及响应延迟，并定期抽样检查真实回答质量，识别用户实际使用中的高频问题。</p></div></section>
+<section class="evaluation-stage"><span class="evaluation-index" aria-hidden="true">03</span><div><h4>持续迭代</h4><p>根据 Bad Case 类型定位知识检索、Prompt、模型生成或交互设计等环节的问题，针对性优化后开展回归评测，验证修复效果并检查是否引入新的问题，形成持续改进闭环。</p></div></section>
+<section class="evaluation-stage"><span class="evaluation-index" aria-hidden="true">◎</span><div><h4>评测重点</h4><p>在控制 AI 幻觉、事实错误和无依据推理的同时，关注回答有效性与兜底触发情况，避免因过度保守而降低用户体验，实现可靠性与实用性的平衡。</p></div></section>
+</div>
 <h2 id="section-6-4"><strong>6.4 总结与展望</strong></h2>
 <p>本方案依托《财经》原创报道和历史内容资源，以 AI 智能阅读助手为切入点，逐步完善信息提炼、专业解释、知识关联和影响探索能力。</p>
 <p><strong>近期重点是提高财经阅读效率与理解体验，长期目标是形成可信、可持续的智能财经信息服务体系。</strong></p>
